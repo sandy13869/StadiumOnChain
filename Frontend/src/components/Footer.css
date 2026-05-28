@@ -1,0 +1,44 @@
+.site-footer {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(136, 180, 255, 0.24);
+  background: linear-gradient(135deg, rgba(8, 16, 34, 0.92), rgba(14, 19, 40, 0.94));
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #d6ecff;
+}
+
+.footer-subtitle {
+  font-size: 13px;
+  color: #9eb0d9;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right p {
+  font-size: 12px;
+  color: #a9b8de;
+}
+
+@media (max-width: 768px) {
+  .footer-right {
+    text-align: left;
+  }
+}

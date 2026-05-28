@@ -1,0 +1,134 @@
+.exchange-tab {
+  padding: 20px 0;
+}
+
+.exchange-tab h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+.exchange-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.exchange-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.exchange-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.exchange-description {
+  color: #a0a0a0;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.exchange-input {
+  margin-bottom: 20px;
+}
+
+.exchange-input label {
+  display: block;
+  font-size: 14px;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+}
+
+.exchange-input input {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.exchange-input input:focus {
+  outline: none;
+  border-color: #8247e5;
+}
+
+.exchange-input input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.exchange-rate {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: rgba(130, 71, 229, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.exchange-rate span:last-child {
+  color: #8247e5;
+  font-weight: 600;
+}
+
+.exchange-info {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.exchange-info h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.exchange-info p {
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.exchange-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exchange-info li {
+  color: #a0a0a0;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.exchange-info li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #00d395;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .exchange-cards {
+    grid-template-columns: 1fr;
+  }
+}

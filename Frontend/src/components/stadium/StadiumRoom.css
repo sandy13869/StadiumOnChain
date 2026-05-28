@@ -1,0 +1,212 @@
+.stadium-room {
+  padding: 20px 0;
+}
+
+.stadium-room.vr-mobile-mode {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  background: radial-gradient(circle at center, rgba(9, 18, 38, 0.96), rgba(4, 7, 15, 0.98));
+  padding: 8px;
+  overflow: hidden;
+}
+
+.stadium-room.vr-mobile-mode .stadium-header {
+  margin-bottom: 8px;
+}
+
+.stadium-room.vr-mobile-mode .stadium-canvas {
+  height: calc(100vh - 170px);
+  min-height: 320px;
+  margin-bottom: 10px;
+}
+
+.stadium-header {
+  margin-bottom: 24px;
+}
+
+.stadium-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.stadium-header p {
+  color: #a0a0a0;
+  font-size: 14px;
+}
+
+.stadium-canvas {
+  width: 100%;
+  height: min(68vh, 680px);
+  min-height: 360px;
+  background: rgba(10, 10, 15, 0.8);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.stadium-canvas.vr-active {
+  border-color: rgba(75, 155, 255, 0.8);
+  box-shadow: 0 0 0 2px rgba(75, 155, 255, 0.35), 0 0 42px rgba(75, 155, 255, 0.22);
+}
+
+.stadium-status-line {
+  margin: -8px 0 14px;
+  font-size: 12px;
+  color: #9ec4ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.stadium-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(130, 71, 229, 0.5);
+  transform: translateY(-2px);
+}
+
+.control-btn.primary {
+  background: rgba(130, 71, 229, 0.2);
+  border-color: #8247e5;
+}
+
+.control-btn.primary:hover {
+  background: rgba(130, 71, 229, 0.3);
+  box-shadow: 0 0 20px rgba(130, 71, 229, 0.4);
+}
+
+.stadium-overlay {
+  position: relative;
+  min-height: 520px;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.overlay-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+  position: relative;
+}
+
+.overlay-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.overlay-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #8247e5, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.overlay-content p {
+  color: #a0a0a0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.stadium-screen-video-shell {
+  width: clamp(260px, 46vw, 560px);
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #000;
+}
+
+.stadium-screen-video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.stadium-screen-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .stadium-canvas {
+    height: min(56vh, 430px);
+  }
+
+  .stadium-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .control-btn {
+    min-width: 0;
+    justify-content: center;
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+
+  .stadium-screen-video-shell {
+    width: min(72vw, 420px);
+  }
+
+  .overlay-content {
+    padding: 24px;
+    max-width: 92%;
+  }
+
+  .overlay-content h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 420px) {
+  .stadium-controls {
+    grid-template-columns: 1fr;
+  }
+}
