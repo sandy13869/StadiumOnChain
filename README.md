@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="Frontend/files/SPRX.png" alt="Tokenized SPRX" width="220" />
+  <!-- <img src="Frontend/files/SPRX.png" alt="Tokenized SPRX" width="220" /> -->
+  <div class="logo-thunder" aria-hidden="true">⚡</div>
   <h1>Tokenized SPRX</h1>
   <p><strong>Web3 Sports Streaming, NFT Ticketing, and Immersive Stadium Viewing</strong></p>
   <p>
