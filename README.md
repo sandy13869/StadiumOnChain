@@ -70,7 +70,7 @@ flowchart LR
   B --> C[ethers.js + RPC Provider]
   C --> D[Polygon Amoy Smart Contracts]
   A --> E[WalletConnect / RainbowKit]
-  A --> F[3D Stadium + Local Audio + YouTube Feeds]
+  A --> F[3D Stadium + Local Audio + Streaming Feeds]
   B --> G[Swagger UI /api/docs]
 ```
 
