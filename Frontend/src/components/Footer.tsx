@@ -1,17 +1,16 @@
+import { AudioLines, ArrowUpRight } from "lucide-react";
 import "./Footer.css";
-
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="site-footer">
-      <div className="footer-left">
-        <p className="footer-title">Tokenized SPRX</p>
-        <p className="footer-subtitle">Immersive sports streaming with on-chain access.</p>
+      <div className="footer-wordmark">
+        <AudioLines size={20} /> sprx.<span>For the love of the game.</span>
       </div>
       <div className="footer-right">
-        <p>Copyright {year} Tokenized SPRX. All rights reserved.</p>
-        <p>Design credits: Sandeep</p>
+        <span>© {new Date().getFullYear()} Tokenized SPRX</span>
+        <span>
+          Designed by Sandeep <ArrowUpRight size={12} />
+        </span>
       </div>
     </footer>
   );

@@ -1,134 +1,234 @@
 .exchange-tab {
-  padding: 20px 0;
+  padding: 10px 0 30px;
 }
-
-.exchange-tab h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 32px;
-  color: #fff;
-}
-
-.exchange-cards {
+.exchange-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 24px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 55px;
+  margin: 45px auto 35px;
+  max-width: 1000px;
 }
-
-.exchange-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 32px;
+.exchange-emblem {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: #b28aff12;
+  border: 1px solid #b28aff2e;
+  color: #b28aff;
+  margin-bottom: 28px;
 }
-
-.exchange-card h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-.exchange-description {
-  color: #a0a0a0;
-  font-size: 14px;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.exchange-input {
+.exchange-intro h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 56px;
+  line-height: 1.05;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
-
-.exchange-input label {
+.exchange-intro > p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #9f94b1;
+  max-width: 330px;
+}
+.exchange-feature {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  color: #b28aff;
+  align-items: center;
+}
+.exchange-feature > span {
+  font-size: 12px;
+  color: #e3dcee;
+}
+.exchange-feature small {
   display: block;
-  font-size: 14px;
-  color: #a0a0a0;
-  margin-bottom: 8px;
+  color: #8c809f;
+  font-size: 10px;
+  margin-top: 6px;
 }
-
-.exchange-input input {
-  width: 100%;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
+.exchange-intro > .exchange-testnet {
+  font-size: 10px;
+  margin-top: 32px;
 }
-
-.exchange-input input:focus {
-  outline: none;
-  border-color: #8247e5;
+.swap-card {
+  padding: 25px;
+  background: #1b1721;
+  border: 1px solid #352c43;
+  border-radius: 17px;
 }
-
-.exchange-input input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.swap-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  background: #110d18;
+  padding: 5px;
+  border-radius: 9px;
 }
-
-.exchange-rate {
+.swap-tabs button {
+  width: 50%;
+  padding: 11px;
+  background: none;
+  border: 0;
+  color: #988bac;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.swap-tabs button.selected {
+  background: #b28aff;
+  color: #161020;
+  font-weight: 700;
+}
+.swap-input,
+.swap-output {
+  border: 1px solid #332a41;
+  border-radius: 10px;
+  background: #14101b;
+  padding: 17px;
+}
+.swap-input label,
+.swap-output > span {
+  font-size: 11px;
+  color: #c7bfd5;
   display: flex;
   justify-content: space-between;
-  padding: 12px;
-  background: rgba(130, 71, 229, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
+  gap: 10px;
+}
+.swap-input label > span,
+.swap-output small {
+  color: #7c6f91;
+  font-size: 9px;
+}
+.swap-input > div,
+.swap-output > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+}
+.swap-input input {
+  width: 100%;
+  min-width: 0;
+  background: none;
+  border: 0;
+  font-size: 29px;
+  color: #f2eff6;
+  outline: none;
+}
+.swap-input:focus-within {
+  border-color: #b28aff;
+}
+.swap-input strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.token-icon {
+  display: grid;
+  place-items: center;
+  background: #b28aff;
+  color: #150e20;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   font-size: 14px;
-  color: #a0a0a0;
 }
-
-.exchange-rate span:last-child {
-  color: #8247e5;
-  font-weight: 600;
-}
-
-.exchange-info {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 32px;
-}
-
-.exchange-info h4 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #fff;
-}
-
-.exchange-info p {
-  color: #a0a0a0;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.exchange-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.exchange-info li {
-  color: #a0a0a0;
-  padding: 8px 0;
-  padding-left: 24px;
+.swap-arrow {
   position: relative;
+  z-index: 1;
+  background: #271e35;
+  border: 5px solid #1b1721;
+  width: 37px;
+  height: 37px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  margin: -7px auto;
+  color: #b28aff;
 }
-
-.exchange-info li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #00d395;
-  font-weight: 700;
+.swap-output strong {
+  font-size: 26px;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
-
-@media (max-width: 768px) {
-  .exchange-cards {
+.swap-output b {
+  font-size: 12px;
+  color: #beb0d4;
+}
+.swap-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 22px 0;
+  font-size: 10px;
+}
+.swap-details > span {
+  display: flex;
+  justify-content: space-between;
+  color: #958aa8;
+  gap: 10px;
+}
+.swap-details strong {
+  color: #d2c8e2;
+  font-weight: 500;
+}
+.swap-notice {
+  font-size: 10px;
+  line-height: 1.7;
+  padding: 12px;
+  background: #9875d10d;
+  color: #b39dd6;
+  border: 1px solid #9875d12e;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.swap-submit {
+  width: 100%;
+  font-size: 12px;
+}
+.swap-footnote {
+  font-size: 9px;
+  color: #897d9d;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+.spin {
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 1050px) {
+  .exchange-layout {
+    gap: 24px;
+  }
+  .exchange-intro h3 {
+    font-size: 44px;
+  }
+  .swap-card {
+    padding: 18px;
+  }
+}
+@media (max-width: 800px) {
+  .exchange-layout {
     grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+  .exchange-intro {
+    display: none;
+  }
+  .swap-card {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
   }
 }

@@ -12,6 +12,7 @@
     "@rainbow-me/rainbowkit": "^2.2.0",
     "@react-three/drei": "^9.120.0",
     "@react-three/fiber": "^8.17.0",
+    "@react-three/xr": "^6.6.30",
     "@tanstack/react-query": "^5.100.14",
     "ethers": "^6.13.0",
     "framer-motion": "^11.15.0",

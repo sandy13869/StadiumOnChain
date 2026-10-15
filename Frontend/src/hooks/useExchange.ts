@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { parseUnits, formatUnits } from "viem";
+import { useWriteContract, usePublicClient } from "wagmi";
+import { parseUnits } from "viem";
 import { CONTRACT_ADDRESSES } from "../wallet";
 
 const ACCESS_CONTROLLER_ABI = [
@@ -36,24 +36,27 @@ const ERC20_ABI = [
 export function useExchange() {
   const [loading, setLoading] = useState(false);
 
-  const { writeContract: writeBuy, data: buyHash } = useWriteContract();
-  const { writeContract: writeSell, data: sellHash } = useWriteContract();
-  const { writeContract: writeApprove, data: approveHash } = useWriteContract();
+  const publicClient = usePublicClient();
+  const { writeContractAsync } = useWriteContract();
 
-  const { isLoading: isBuyPending } = useWaitForTransactionReceipt({ hash: buyHash });
-  const { isLoading: isSellPending } = useWaitForTransactionReceipt({ hash: sellHash });
-  const { isLoading: isApprovePending } = useWaitForTransactionReceipt({ hash: approveHash });
+  const confirm = async (hash: `0x${string}`) => {
+    if (!publicClient) throw new Error("Network client unavailable");
+    const receipt = await publicClient.waitForTransactionReceipt({ hash });
+    if (receipt.status !== "success")
+      throw new Error("Transaction reverted on-chain");
+  };
 
   const approveUSDC = async (amount: string) => {
     setLoading(true);
     try {
       const amountWei = parseUnits(amount, 6);
-      await writeApprove({
+      const hash = await writeContractAsync({
         address: CONTRACT_ADDRESSES.usdc as `0x${string}`,
         abi: ERC20_ABI,
         functionName: "approve",
         args: [CONTRACT_ADDRESSES.accessController as `0x${string}`, amountWei],
       });
+      await confirm(hash);
     } finally {
       setLoading(false);
     }
@@ -63,12 +66,13 @@ export function useExchange() {
     setLoading(true);
     try {
       const amount = parseUnits(usdcAmount, 6);
-      await writeBuy({
+      const hash = await writeContractAsync({
         address: CONTRACT_ADDRESSES.accessController as `0x${string}`,
         abi: ACCESS_CONTROLLER_ABI,
         functionName: "buyTokens",
         args: [amount],
       });
+      await confirm(hash);
     } finally {
       setLoading(false);
     }
@@ -78,12 +82,13 @@ export function useExchange() {
     setLoading(true);
     try {
       const amountWei = parseUnits(amount, 18);
-      await writeApprove({
+      const hash = await writeContractAsync({
         address: CONTRACT_ADDRESSES.streamToken as `0x${string}`,
         abi: ERC20_ABI,
         functionName: "approve",
         args: [CONTRACT_ADDRESSES.accessController as `0x${string}`, amountWei],
       });
+      await confirm(hash);
     } finally {
       setLoading(false);
     }
@@ -93,12 +98,13 @@ export function useExchange() {
     setLoading(true);
     try {
       const amount = parseUnits(sprxAmount, 18);
-      await writeSell({
+      const hash = await writeContractAsync({
         address: CONTRACT_ADDRESSES.accessController as `0x${string}`,
         abi: ACCESS_CONTROLLER_ABI,
         functionName: "sellTokens",
         args: [amount],
       });
+      await confirm(hash);
     } finally {
       setLoading(false);
     }
@@ -109,6 +115,6 @@ export function useExchange() {
     buySPRX,
     approveSPRX,
     sellSPRX,
-    loading: loading || isBuyPending || isSellPending || isApprovePending,
+    loading,
   };
 }

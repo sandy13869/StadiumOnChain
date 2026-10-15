@@ -10,6 +10,15 @@ export const wagmiConfig = getDefaultConfig({
 
 export const CHAIN_ID = 80002;
 
+/**
+ * Local development bypass for the on-chain access gate.
+ *
+ * When `true`, the "must hold > 30 POL on Amoy" (and network) requirement is
+ * skipped so the live events and 3D stadium can be opened without funding a
+ * wallet. Set to `false` to restore the real access gate.
+ */
+export const BYPASS_ACCESS_GATE = true;
+
 export const CONTRACT_ADDRESSES = {
   streamToken: import.meta.env.VITE_APP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
   ticketContract: import.meta.env.VITE_APP_TICKET_ADDRESS || "0x0000000000000000000000000000000000000000",

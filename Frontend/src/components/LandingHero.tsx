@@ -1,67 +1,90 @@
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  Play,
+  MoveUpRight,
+  Orbit,
+  ShieldCheck,
+  Wallet,
+} from "lucide-react";
 import "./LandingHero.css";
-
 interface LandingHeroProps {
-  isAmoy: boolean;
-  hasPolAccess: boolean;
-  polBalance: number;
-  minPolForAccess: number;
+  onExplore: () => void;
+  onEnterStadium: () => void;
+  onExchange: () => void;
 }
-
 export default function LandingHero({
-  isAmoy,
-  hasPolAccess,
-  polBalance,
-  minPolForAccess,
+  onExplore,
+  onEnterStadium,
+  onExchange,
 }: LandingHeroProps) {
   return (
-    <section className="landing-hero">
-      <div className="landing-hero-copy">
-        <p className="landing-kicker">Tokenized Sports Experience</p>
-        <h2>
-          The Stadium Is
-          <span> On Chain</span>
-        </h2>
-        <p>
-          Stream premium fixtures, unlock immersive seats, and move from live match feeds to 3D viewing in one
-          seamless Web3 dashboard.
-        </p>
-        <div className="landing-pills">
-          <span className={isAmoy ? "pill pill-ok" : "pill pill-warn"}>
-            {isAmoy ? "ETH Connected" : "Switch To ETH"}
+    <>
+      <section className="landing-hero" aria-labelledby="hero-title">
+        <div className="hero-image" />
+        <div className="hero-grain" />
+        <div className="hero-copy">
+          <span className="eyebrow">
+            <span className="accent-dot" /> THE GAME. REIMAGINED.
           </span>
-          <span className={hasPolAccess ? "pill pill-ok" : "pill pill-warn"}>
-            {hasPolAccess ? "Access Open" : `Need > ${minPolForAccess} POL`}
+          <h1 id="hero-title">
+            Don't just watch.
+            <br />
+            <span>Be there.</span>
+          </h1>
+          <p>
+            Your sport. Your seat. Your moment.
+            <br />
+            Step inside a new era of on-chain sports.
+          </p>
+          <div className="landing-actions">
+            <button className="btn-primary" onClick={onExplore}>
+              Explore events <ArrowUpRight size={18} />
+            </button>
+            <button className="hero-play" onClick={onEnterStadium}>
+              <span>
+                <Play size={15} fill="currentColor" />
+              </span>
+              Experience 3D
+            </button>
+          </div>
+        </div>
+        <div className="hero-corner">
+          <Orbit size={20} />
+          <span>
+            IMMERSIVE BY DESIGN
+            <br />
+            <strong>Built for the fans.</strong>
           </span>
-          <span className="pill">Wallet: {polBalance.toFixed(2)} </span>
         </div>
-        <div className="landing-actions">
-          <button className="btn-primary" type="button">
-            Explore Live Matches <ArrowUpRight size={16} />
-          </button>
-          <button className="btn-secondary" type="button">
-            Why Tokenized Access <Sparkles size={16} />
-          </button>
+        <div className="hero-bottom">
+          <span>THE BEST SEAT IS WHEREVER YOU ARE.</span>
+          <span>
+            360° EXPERIENCE <MoveUpRight size={15} />
+          </span>
         </div>
+      </section>
+      <div className="experience-strip">
+        <div>
+          <ShieldCheck size={20} />
+          <span>
+            On-chain access<strong>Your wallet. Your way in.</strong>
+          </span>
+        </div>
+        <button onClick={onEnterStadium}>
+          <Orbit size={22} />
+          <span>
+            Immersive stadium<strong>Get closer to every moment.</strong>
+          </span>
+          <ArrowUpRight size={16} />
+        </button>
+        <button onClick={onExchange}>
+          <Wallet size={20} />
+          <span>
+            Powered by SPRX<strong>Swap tokens. Unlock experiences.</strong>
+          </span>
+          <ArrowUpRight size={16} />
+        </button>
       </div>
-
-      <div className="landing-hero-media">
-        <img
-          src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80"
-          alt="Football crowd and stadium lights"
-          className="hero-main-image"
-        />
-        <div className="hero-side-grid">
-          <img
-            src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600&q=80"
-            alt="Athlete preparing for game"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80"
-            alt="Live match action"
-          />
-        </div>
-      </div>
-    </section>
+    </>
   );
 }

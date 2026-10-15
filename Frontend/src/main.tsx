@@ -17,8 +17,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
           theme={darkTheme({
-            accentColor: "#8247e5",
-            accentColorForeground: "white",
+            accentColor: "#b28aff",
+            accentColorForeground: "#14101a",
             borderRadius: "large",
           })}
         >
@@ -26,5 +26,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

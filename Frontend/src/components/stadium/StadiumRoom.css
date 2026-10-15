@@ -1,212 +1,736 @@
+.stadium-lobby,
 .stadium-room {
-  padding: 20px 0;
+  padding: 8px 0 20px;
 }
-
-.stadium-room.vr-mobile-mode {
-  position: fixed;
-  inset: 0;
-  z-index: 1400;
-  background: radial-gradient(circle at center, rgba(9, 18, 38, 0.96), rgba(4, 7, 15, 0.98));
-  padding: 8px;
-  overflow: hidden;
-}
-
-.stadium-room.vr-mobile-mode .stadium-header {
-  margin-bottom: 8px;
-}
-
-.stadium-room.vr-mobile-mode .stadium-canvas {
-  height: calc(100vh - 170px);
-  min-height: 320px;
-  margin-bottom: 10px;
-}
-
-.stadium-header {
-  margin-bottom: 24px;
-}
-
-.stadium-header h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #fff;
-}
-
-.stadium-header p {
-  color: #a0a0a0;
-  font-size: 14px;
-}
-
-.stadium-canvas {
-  width: 100%;
-  height: min(68vh, 680px);
-  min-height: 360px;
-  background: rgba(10, 10, 15, 0.8);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 20px;
-}
-
-.stadium-canvas.vr-active {
-  border-color: rgba(75, 155, 255, 0.8);
-  box-shadow: 0 0 0 2px rgba(75, 155, 255, 0.35), 0 0 42px rgba(75, 155, 255, 0.22);
-}
-
-.stadium-status-line {
-  margin: -8px 0 14px;
-  font-size: 12px;
-  color: #9ec4ff;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-align: center;
-}
-
-.stadium-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.control-btn {
+.stadium-back {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.control-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(130, 71, 229, 0.5);
-  transform: translateY(-2px);
-}
-
-.control-btn.primary {
-  background: rgba(130, 71, 229, 0.2);
-  border-color: #8247e5;
-}
-
-.control-btn.primary:hover {
-  background: rgba(130, 71, 229, 0.3);
-  box-shadow: 0 0 20px rgba(130, 71, 229, 0.4);
-}
-
-.stadium-overlay {
-  position: relative;
-  min-height: 520px;
-  background: rgba(10, 10, 15, 0.95);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.overlay-content {
-  text-align: center;
-  max-width: 400px;
-  padding: 40px;
-  position: relative;
-}
-
-.overlay-close {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  font-size: 22px;
-  line-height: 1;
-}
-
-.overlay-content h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #8247e5, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.overlay-content p {
-  color: #a0a0a0;
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.stadium-screen-video-shell {
-  width: clamp(260px, 46vw, 560px);
-  aspect-ratio: 16 / 9;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #000;
-}
-
-.stadium-screen-video {
-  width: 100%;
-  height: 100%;
+  background: none;
   border: 0;
+  color: #a195b4;
+  font-size: 11px;
+  margin-bottom: 32px;
 }
-
-.stadium-screen-fallback {
+.lobby-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.lobby-heading .eyebrow,
+.stadium-header .eyebrow {
+  color: #b28aff;
+  font-size: 9px;
+  margin-bottom: 11px;
+}
+.lobby-heading h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 52px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.7px;
+}
+.lobby-heading > div > p:last-child {
+  color: #998dac;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 14px;
+}
+.demo-tag {
+  display: inline-flex;
+  align-items: center;
+  color: #b28aff;
+  background: #b28aff10;
+  border: 1px solid #b28aff33;
+  border-radius: 5px;
+  white-space: nowrap;
+  padding: 6px 9px;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.lobby-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.seat-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.seat-choice {
   display: flex;
   align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 23px 20px;
+  border: 1px solid #322b3e;
+  border-radius: 12px;
+  background: #1a1621;
+  color: #f2eff6;
+  text-align: left;
+}
+.seat-choice:hover {
+  border-color: #7a5ea8;
+  transform: translateX(3px);
+}
+.seat-choice.selected {
+  border-color: #b28aff;
+  background: linear-gradient(110deg, #b28aff16, #1a1621);
+}
+.seat-number {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 35px;
+  color: #605276;
+}
+.seat-choice.selected .seat-number {
+  color: #b28aff;
+}
+.seat-choice > span:nth-child(2) {
+  flex: 1;
+}
+.seat-choice small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  color: #8e7ea7;
+}
+.seat-choice strong {
+  display: block;
+  font-size: 17px;
+  margin: 8px 0;
+}
+.seat-choice > span > span {
+  font-size: 10px;
+  color: #a297b4;
+  line-height: 1.7;
+  display: block;
+}
+.seat-check {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #292135;
+  color: #b28aff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.lobby-hints {
+  display: flex;
+  gap: 23px;
+  margin: 14px 0;
+  color: #a49ab4;
+  font-size: 10px;
+}
+.lobby-hints span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.demo-ticket {
+  padding: 30px;
+  background: linear-gradient(150deg, #2d223e, #1b1524);
+  border: 1px solid #524070;
+  border-radius: 16px;
+}
+.ticket-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b28aff;
+  border-bottom: 1px solid #aa91d325;
+  padding-bottom: 22px;
+  margin-bottom: 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.demo-ticket .eyebrow {
+  font-size: 8px;
+  color: #bfafd9;
+}
+.demo-ticket h3 {
+  font-size: 27px;
+  margin: 12px 0 9px;
+}
+.demo-ticket > p:not(.eyebrow):not(.ticket-note) {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #9e8eb8;
+}
+.ticket-details {
+  display: flex;
+  gap: 35px;
+  margin: 27px 0;
+  color: #a291bd;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.ticket-details strong {
+  display: block;
+  color: #ebe4f6;
+  font-size: 16px;
+  letter-spacing: 0;
+  margin-top: 8px;
+}
+.ticket-perforation {
+  border-top: 1px dashed #9175bf4b;
+  margin: 0 -30px 24px;
+}
+.ticket-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0;
+  color: #ae9ec8;
+  font-size: 11px;
+}
+.ticket-price strong {
+  color: #b28aff;
+  font-size: 20px;
+}
+.demo-ticket .btn-primary {
+  width: 100%;
+}
+.ticket-note {
+  font-size: 9px;
+  color: #9a8dae;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.stadium-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stadium-header h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+.stadium-header h2 span {
+  color: #b28aff;
+}
+.stadium-header .btn-secondary {
+  font-size: 10px;
+}
+.stadium-experience {
+  border: 1px solid #382e47;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #100c17;
+}
+.stadium-topbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 17px;
+  background: #1c1526;
+}
+.match-score {
+  font-size: 10px;
+  color: #a89bbd;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.match-score b {
+  font-size: 17px;
+  color: #ede7f7;
+  letter-spacing: 2px;
+}
+.match-score small {
+  font-size: 10px;
+  color: #b28aff;
+  margin-left: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.stadium-canvas {
+  position: relative;
+  width: 100%;
+  height: min(65vh, 670px);
+  min-height: 360px;
+  background: #090611;
+  touch-action: none;
+}
+.stadium-canvas canvas {
+  touch-action: none;
+  outline-offset: -3px;
+}
+.stadium-topbar .icon-control {
+  background: none;
+}
+.icon-control {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  color: #fff;
+  min-width: 36px;
+  min-height: 36px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #251d31;
+  color: #c0b1d8;
+}
+.icon-control:hover {
+  border-color: #766197;
+}
+.stadium-console {
+  background: #1b1524;
+  padding: 13px 17px;
+}
+.console-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.navigation-modes {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #110c19;
+  border-radius: 8px;
+}
+.navigation-modes button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 0;
+  color: #a294b9;
+  padding: 9px 12px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+.navigation-modes button.selected {
+  background: #b28aff;
+  color: #140c20;
   font-weight: 600;
 }
-
-@media (max-width: 768px) {
-  .stadium-canvas {
-    height: min(56vh, 430px);
+.console-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.vr-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #b28aff;
+  color: #150e20;
+  font-size: 11px;
+  padding: 11px 15px;
+  border-radius: 6px;
+  border: 0;
+  font-weight: 600;
+}
+.console-secondary {
+  border-top: 1px solid #382c4b;
+  margin-top: 13px;
+  padding-top: 13px;
+}
+.seat-select,
+.quality-select {
+  font-size: 9px;
+  color: #8d7da6;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.seat-select select,
+.quality-select select {
+  background: #171121;
+  color: #d7cbea;
+  font-size: 10px;
+  border: 1px solid #382b4d;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 150px;
+}
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.audio-controls input {
+  width: 75px;
+  accent-color: #b28aff;
+  min-height: 28px;
+}
+.console-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #c5b6dc;
+  background: none;
+  border: 1px solid #403256;
+  border-radius: 5px;
+  padding: 8px 11px;
+  white-space: nowrap;
+}
+.console-text:hover {
+  color: #b28aff;
+  background: #b28aff0c;
+}
+.demo-match-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #342a44;
+}
+.demo-match-actions > span {
+  margin-left: auto;
+  font-size: 9px;
+  color: #8979a2;
+  line-height: 1.6;
+  max-width: 260px;
+}
+.stadium-status-line {
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #ac9cc7;
+  min-height: 20px;
+}
+.seat-location {
+  position: absolute;
+  left: 17px;
+  bottom: 17px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #120d1ad9;
+  border: 1px solid #b28aff33;
+  color: #c9b9e4;
+  font-size: 8px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.walk-prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 25px;
+  min-width: 270px;
+  border-radius: 12px;
+  border: 1px solid #634d86;
+  background: #181123ef;
+  color: #b28aff;
+}
+.walk-prompt h3 {
+  font-size: 19px;
+  margin: 14px 0 10px;
+  color: #e7dff4;
+}
+.walk-prompt p {
+  font-size: 10px;
+  line-height: 1.9;
+  color: #a799be;
+  margin-bottom: 20px;
+}
+.walk-crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #eae3f6;
+  font-size: 20px;
+  pointer-events: none;
+  text-shadow: 0 0 4px #000;
+}
+.goal-flash {
+  position: absolute;
+  left: 50%;
+  top: 23%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background: #b28affe6;
+  color: #1b112c;
+  border-radius: 8px;
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 35px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.goal-flash span {
+  font-family: "DM Sans", sans-serif;
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+.stadium-help {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: min(340px, calc(100% - 36px));
+  max-height: calc(100% - 36px);
+  overflow: auto;
+  padding: 24px;
+  background: #181124f5;
+  border: 1px solid #644d89;
+  border-radius: 10px;
+  box-shadow: 0 10px 50px #0009;
+  touch-action: pan-y;
+}
+.stadium-help > button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  border: 0;
+  background: none;
+  color: #b28aff;
+  font-size: 26px;
+  padding: 5px;
+}
+.stadium-help h3 {
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+.stadium-help p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #a697bf;
+  margin-top: 12px;
+}
+.stadium-help b {
+  color: #dcd0ee;
+}
+.stadium-experience.is-expanded,
+.stadium-experience:fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+  border: 0;
+  overflow: auto;
+}
+.stadium-experience.is-expanded .stadium-canvas,
+.stadium-experience:fullscreen .stadium-canvas {
+  flex: 1;
+  min-height: 200px;
+  height: auto;
+}
+.stadium-experience.is-expanded .stadium-console,
+.stadium-experience:fullscreen .stadium-console {
+  flex-shrink: 0;
+}
+.scene-error,
+.stadium-access {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: 45px 25px;
+  color: #b29fd0;
+  min-height: 360px;
+}
+.scene-error p,
+.stadium-access p {
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 400px;
+}
+.scene-error {
+  height: 100%;
+}
+@media (max-width: 1100px) {
+  .lobby-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
-
-  .stadium-controls {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .lobby-layout {
+    gap: 18px;
   }
-
-  .control-btn {
-    min-width: 0;
-    justify-content: center;
-    font-size: 12px;
-    padding: 10px 8px;
+  .seat-choice {
+    gap: 12px;
+    padding: 20px 15px;
   }
-
-  .stadium-screen-video-shell {
-    width: min(72vw, 420px);
+  .seat-choice strong {
+    font-size: 15px;
   }
-
-  .overlay-content {
-    padding: 24px;
-    max-width: 92%;
-  }
-
-  .overlay-content h2 {
+  .seat-number {
     font-size: 26px;
   }
+  .demo-ticket {
+    padding: 23px;
+  }
+  .ticket-perforation {
+    margin-inline: -23px;
+  }
+  .ticket-details {
+    gap: 23px;
+  }
+  .console-secondary {
+    flex-wrap: wrap;
+  }
+  .demo-match-actions {
+    flex-wrap: wrap;
+  }
+  .demo-match-actions > span {
+    margin-left: 0;
+    max-width: none;
+  }
+  .quality-select {
+    margin-left: auto;
+  }
 }
-
-@media (max-width: 420px) {
-  .stadium-controls {
+@media (max-width: 760px) {
+  .lobby-layout {
     grid-template-columns: 1fr;
+  }
+  .lobby-heading h2 {
+    font-size: 44px;
+  }
+  .demo-ticket {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+  .stadium-header {
+    align-items: flex-start;
+  }
+  .stadium-header h2 {
+    font-size: 26px;
+  }
+  .stadium-header .btn-secondary {
+    padding: 8px 10px;
+    gap: 6px;
+    font-size: 9px;
+  }
+  .stadium-header .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .stadium-topbar {
+    padding: 0 10px;
+  }
+  .stadium-topbar .demo-tag {
+    font-size: 6px;
+    padding: 5px;
+  }
+  .match-score {
+    font-size: 8px;
+    gap: 7px;
+  }
+  .match-score b {
+    font-size: 14px;
+  }
+  .match-score small {
+    font-size: 8px;
+    margin: 0;
+  }
+  .stadium-canvas {
+    height: 55vh;
+    min-height: 320px;
+  }
+  .stadium-console {
+    padding: 10px;
+  }
+  .console-row {
+    gap: 8px;
+  }
+  .navigation-modes button {
+    font-size: 9px;
+    padding: 8px 9px;
+    gap: 5px;
+  }
+  .navigation-modes button > svg {
+    width: 12px;
+  }
+  .console-actions {
+    gap: 3px;
+  }
+  .vr-button {
+    font-size: 9px;
+    padding: 10px 8px;
+    gap: 5px;
+  }
+  .console-actions .icon-control {
+    min-width: 28px;
+    min-height: 30px;
+  }
+  .quality-select {
+    margin-left: 0;
+  }
+  .console-secondary {
+    gap: 10px;
+  }
+  .audio-controls {
+    margin-left: auto;
+    gap: 5px;
+  }
+  .seat-select select {
+    max-width: 130px;
+  }
+  .console-secondary .quality-select {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .quality-select select {
+    max-width: 160px;
+  }
+  .seat-location {
+    font-size: 7px;
+    left: 10px;
+    bottom: 10px;
+  }
+  .lobby-hints {
+    gap: 15px;
+  }
+  .stadium-experience.is-expanded .demo-match-actions > span,
+  .stadium-experience:fullscreen .demo-match-actions > span {
+    display: none;
+  }
+}
+@media (max-width: 390px) {
+  .console-actions .icon-control:first-child {
+    display: none;
+  }
+  .navigation-modes button {
+    padding: 8px;
+  }
+  .audio-controls input {
+    width: 50px;
+  }
+  .seat-select {
+    gap: 5px;
+    font-size: 8px;
+  }
+  .seat-select select {
+    max-width: 116px;
+  }
+  .match-score {
+    gap: 5px;
+  }
+  .stadium-topbar .demo-tag {
+    letter-spacing: 0;
+  }
+  .walk-prompt {
+    min-width: 250px;
+  }
+  .stadium-header h2 {
+    font-size: 23px;
   }
 }

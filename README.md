@@ -14,6 +14,36 @@
 
 ---
 
+## Interface refresh
+
+The current frontend uses a dark violet and purple sports interface with a cinematic hero, desktop sidebar, mobile bottom navigation, searchable sport filters, live-only discovery, and native keyboard-accessible event dialogs. The Three.js stadium is lazy-loaded when opened, with PC navigation, seat selection, headset controls, and local crowd audio.
+
+The exchange provides buy/sell tabs, wallet balances, contract-read rates and fees, exact-unit receive estimates, network switching, and separate approval/swap progress. Both transactions wait for successful receipts before reporting completion. Missing contract configuration disables swaps and explains the setup requirement.
+
+**Current development behavior:** `BYPASS_ACCESS_GATE` in `Frontend/src/wallet.ts` remains enabled. The interface labels this as **Preview mode**, with free stadium entry and demo event/broadcast content. This bypass does not simulate payment or grant on-chain access. The actual configured network is **Polygon Amoy**, using **POL** for gas; earlier ETH labels described below are historical.
+
+Run locally with `npm run start` (frontend at `http://localhost:3000`, API at `http://localhost:8000`). Validate the frontend with `npm run build --prefix Frontend` and the exchange confirmation flow with `node --test Frontend/scripts/test-exchange.cjs`. The UI loads sports photos from Unsplash and fonts from Google Fonts.
+
+---
+
+## Interactive stadium demo
+
+Open **3D Stadium**, choose Club level, Front row, or Behind the goal, then select **Take my seat**. The admission pass is local to the demo and is explicitly marked as free preview when the access bypass is enabled. It never mints an NFT, submits a transaction, or claims an on-chain verification. With the bypass disabled, the existing wallet/network/balance eligibility gate still applies.
+
+| Mode | Controls |
+|---|---|
+| Seated | Drag or touch to look around from a fixed seat. Focus the scene and use arrow keys for keyboard look. Reset recenters the view. |
+| Explore | Drag to orbit; scroll or pinch to zoom. Select a purple marker to return to that seating area. |
+| Walk (PC) | Choose Walk, then Start walking to capture the mouse. WASD moves, Shift moves faster, and Escape releases the mouse. Movement stays within the pitchside demo area. |
+| Fullscreen | Use the expand icon. Controls stay inside the expanded view. Unsupported browsers use a page-filling fallback. |
+| Headset VR | Use a connected WebXR-capable headset/browser on HTTPS or localhost, then Enter VR. The origin starts at the selected row. Right-stick turning snaps by 30°; smooth movement is disabled for comfort. Point and select the in-world panel to change seats, toggle crowd audio, cheer, or end VR. |
+
+The pitch has 22 animated demo players and a moving ball. **Trigger demo goal** plays a shot, updates both scoreboards, and energizes the crowd. **Pause play** pauses the players, ball, demo feed and match clock. Crowd audio is opt-in, with a volume slider and one-shot cheer action. The jumbotron is a procedural demonstration, not a real live broadcast. Scene labels use local canvas textures so they do not depend on a remote font download. **Balanced** graphics caps pixel ratio at 1 with shadows off; **High** enables shadows and higher resolution. Real headset performance still depends on device and browser.
+
+Navigation checks: `node --test Frontend/scripts/test-stadium.cjs`. They cover walk bounds, diagonal speed, fixed-seat look, mouse-capture requirements, focus loss, and headset origin/snap-turn setup. Physical headset interaction and visual comfort require hardware validation.
+
+---
+
 ## Overview
 
 Tokenized SPRX is a multi-layer Web3 sports platform that combines:

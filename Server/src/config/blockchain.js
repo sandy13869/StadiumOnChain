@@ -1,6 +1,13 @@
 const { ethers } = require("ethers");
 
-const provider = new ethers.JsonRpcProvider(process.env.RPC_URL || "https://rpc-amoy.polygon.technology");
+const RPC_URL = process.env.RPC_URL || "https://rpc-amoy.polygon.technology";
+
+// `staticNetwork` prevents ethers from eagerly polling the RPC at startup.
+// Without it, an unreachable RPC throws an unhandled rejection that crashes the
+// whole server before it can serve any requests.
+const provider = new ethers.JsonRpcProvider(RPC_URL, undefined, {
+  staticNetwork: true,
+});
 
 const TICKET_ABI = [
   "function hasTicketForEvent(address owner, uint256 eventId) view returns (bool)",
@@ -26,15 +33,25 @@ const ticketAddress = process.env.TICKET_ADDRESS;
 const accessAddress = process.env.ACCESS_ADDRESS;
 const tokenAddress = process.env.TOKEN_ADDRESS;
 
-const ticketContract = ticketAddress
+// Only build contracts for real, non-placeholder addresses. This lets the API
+// run in a fully local/offline mode (returning defaults) without crashing.
+const validAddress = (address) => {
+  try {
+    return typeof address === "string" && ethers.isAddress(address);
+  } catch {
+    return false;
+  }
+};
+
+const ticketContract = validAddress(ticketAddress)
   ? new ethers.Contract(ticketAddress, TICKET_ABI, provider)
   : null;
 
-const accessContract = accessAddress
+const accessContract = validAddress(accessAddress)
   ? new ethers.Contract(accessAddress, ACCESS_ABI, provider)
   : null;
 
-const tokenContract = tokenAddress
+const tokenContract = validAddress(tokenAddress)
   ? new ethers.Contract(tokenAddress, TOKEN_ABI, provider)
   : null;
 
